@@ -71,6 +71,7 @@ def processor(INPUT_IMAGE):
     X_data = data.drop('label', axis = 1)
     X_data = X_data.values.reshape(-1,28,28,1)
     X_data = X_data.astype(float)
+    print(X_data)
 
     df = pd.read_csv(mapping_processed)
     code2char = {}

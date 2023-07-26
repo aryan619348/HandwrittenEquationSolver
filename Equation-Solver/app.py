@@ -47,9 +47,9 @@ class Predict(Resource):
         formatted_equation, solution = calculate(operation)
 #        solution = " ".join(str(x) for x in solution)
         return json.dumps({
-            'Entered_equation': operation,
-            'Formatted_equation': formatted_equation,
-            'solution': solution
+            'Entered_equation': str(operation),
+            'Formatted_equation': str(formatted_equation),
+            'solution': str(solution)
         })
 
 @app.route('/')

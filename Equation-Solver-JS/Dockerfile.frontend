@@ -1,0 +1,19 @@
+# Dockerfile.frontend
+FROM node:latest
+
+WORKDIR /app
+
+# Copy both package.json and package-lock.json (if exists)
+COPY package*.json ./
+COPY package-lock*.json ./
+
+RUN npm install
+
+# Copy all frontend files to the container's working directory
+COPY . .
+
+EXPOSE 3000
+
+RUN export NODE_OPTIONS=--openssl-legacy-provider 
+
+CMD ["npm", "start"]
